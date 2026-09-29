@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Cálculo de Compras</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- caja formulario -->
+    <div class="bg-white p-8 rounded-lg tarjeta max-w-lg w-full">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Cálculo de Compras</h1>
+
+        <!-- formulario -->
+        <form method="POST" action="/ejercicio1" class="space-y-4">
+
+            <!-- el nombre -->
+            <div>
+                <label for="nombre" class="block text-gray-700 font-medium mb-1">Ingresa tu nombre</label>
+                <input type="text" id="nombre" name="nombre" required
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+
+            <!-- edad -->
+            <div>
+                <label for="edad" class="block text-gray-700 font-medium mb-1">Ingresa tu edad</label>
+                <input type="number" id="edad" name="edad" min="0" required
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+
+            <!-- tarros -->
+            <div>
+                <label for="tarros" class="block text-gray-700 font-medium mb-1">Ingresa la cantidad de tarros de
+                    pintura a comprar</label>
+                <input type="number" id="tarros" name="tarros" min="1" required
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+
+            <!-- boton calcular -->
+            <button type="submit"
+                class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-200">
+                Calcular
+            </button>
+        </form>
+
+        <!-- resultados -->
+        {% if calculado %}
+        <div class="mt-6 p-5 bg-gray-50 border border-gray-200 rounded-lg space-y-2">
+            <h2 class="text-lg font-bold text-gray-800 border-b pb-2">Resultado de la compra:</h2>
+            <p class="text-gray-700"><strong>Nombre del cliente:</strong> {{ nombre }}</p>
+            <p class="text-gray-700"><strong>Total sin descuento:</strong> ${{
+                "{:,}".format(total_sin_descuento).replace(',', '.') }}</p>
+            <p class="text-gray-700"><strong>Monto del descuento:</strong> ${{
+                "{:,}".format(monto_descuento).replace(',', '.') }}</p>
+            <p class="text-gray-900 text-lg font-bold"><strong>Total a pagar:</strong> ${{
+                "{:,}".format(total_a_pagar).replace(',', '.') }}</p>
+        </div>
+        {% endif %}
+
+        <!-- volver menú -->
+        <div class="mt-6 text-center">
+            <a href="/" class="text-purple-600 hover:text-purple-800 font-medium text-sm">
+                ← Volver al Menú Principal
+            </a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

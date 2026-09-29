@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal - Evaluación Web</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+    <!-- menu -->
+    <div class="bg-white p-8 rounded-lg tarjeta max-w-md w-full text-center">
+        <h1 class="text-2xl font-bold text-gray-800 mb-2">Evaluación de Programación Web</h1>
+        <p class="text-gray-500 mb-8">Selecciona una de las dos opciones para comenzar</p>
+
+        <!-- botones -->
+        <div class="flex flex-col gap-4">
+
+            <!-- opcion 1 -->
+            <a href="/ejercicio1"
+                class="boton-morado font-semibold py-4 px-6 rounded-lg text-lg text-center transition duration-200">
+                Ejercicio 1: Cálculo de Compras
+            </a>
+
+            <!-- opcion 2 -->
+            <a href="/ejercicio2"
+                class="boton-lima font-semibold py-4 px-6 rounded-lg text-lg text-center transition duration-200">
+                Ejercicio 2: Inicio de Sesión
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

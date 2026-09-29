@@ -1,0 +1,15 @@
+# Entorno virtual
+venv/
+env/
+
+# Archivos de Python
+__pycache__/
+*.pyc
+
+# Archivos comprimidos
+*.zip
+
+# Documentos locales
+*.docx
+*.pdf
+~$*
